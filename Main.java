@@ -17,14 +17,14 @@ public class Main {
                 boolean hasAirDrop = !Util.input("Are you sharing files between Apple devices (Y/n): ").equalsIgnoreCase("n");
 
                 if (hasAirDrop) {
-                    iPhones.add(new iPhone("P"  + (iPhones.size() < 10 ? "0" : "") + (iPhones.size() + 1)).initialize());
+                    iPhones.add(new iPhone(getProductID("iPhone")).initialize());
                     Util.println("You've created an iPhone product.");
                 } else {
-                    androids.add(new Android("P" + (androids.size() < 10 ? "0" : "")  + (androids.size() + 1)).initialize());
+                    androids.add(new Android(getProductID("Android")).initialize());
                     Util.println("You've created an Android product.");
                 }
             } else {
-                laptops.add(new Laptop("P" + (laptops.size() < 10 ? "0" : "")  + (laptops.size() + 1)).initialize());
+                laptops.add(new Laptop(getProductID("Laptop")).initialize());
                 Util.println("You've created a Laptop product.");
             }
 
@@ -34,6 +34,19 @@ public class Main {
         if (!androids.isEmpty() || !iPhones.isEmpty() || !laptops.isEmpty()) {
             Util.println("");
             displayProducts();
+        }
+    }
+
+    public static String getProductID(String productType) {
+        switch (productType) {
+            case "Android":
+                return "P" + (androids.size() < 10 ? "0" : "") + (androids.size() + 1);
+            case "iPhone":
+                return "P" + (iPhones.size() < 10 ? "0" : "") + (iPhones.size() + 1);
+            case "Laptop":
+                return "P" + (laptops.size() < 10 ? "0" : "") + (laptops.size() + 1);
+            default:
+                throw new IllegalArgumentException("Invalid product type: " + productType);
         }
     }
 
