@@ -1,9 +1,9 @@
-public class Apple extends Phone {
+public class iPhone extends Phone {
     private boolean airDrop = true;
     private String appleId;
 
     @Override
-    public Apple initialize() {
+    public iPhone initialize() {
         super.initialize();
 
         appleId = Util.input("What is your Apple ID: ");

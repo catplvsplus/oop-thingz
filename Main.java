@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static ArrayList<Android> androids = new ArrayList<>();
-    public static ArrayList<Apple> apples = new ArrayList<>();
+    public static ArrayList<iPhone> iPhones = new ArrayList<>();
     public static ArrayList<Laptop> laptops = new ArrayList<>();
     
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class Main {
                 boolean hasAirDrop = !Util.input("Are you sharing files between Apple devices (Y/n): ").equalsIgnoreCase("n");
 
                 if (hasAirDrop) {
-                    apples.add(new Apple().initialize());
+                    iPhones.add(new iPhone().initialize());
                 } else {
                     androids.add(new Android().initialize());
                 }
@@ -28,7 +28,7 @@ public class Main {
             Util.println("");
         }
 
-        if (!androids.isEmpty() || !apples.isEmpty() || !laptops.isEmpty()) {
+        if (!androids.isEmpty() || !iPhones.isEmpty() || !laptops.isEmpty()) {
             Util.println("");
             displayProducts();
         }
@@ -48,11 +48,11 @@ public class Main {
             }
         }
 
-        if (apples.size() > 0) {
+        if (iPhones.size() > 0) {
             Util.println("Apple devices: ");
 
-            for (int i = 0; i < apples.size(); i++) {
-                Apple element = apples.get(i);
+            for (int i = 0; i < iPhones.size(); i++) {
+                iPhone element = iPhones.get(i);
 
                 Util.println(element);
                 System.err.println();
