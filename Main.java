@@ -1,36 +1,69 @@
+import java.util.ArrayList;
+
 public class Main {
+    public static ArrayList<Android> androids = new ArrayList<>();
+    public static ArrayList<Apple> apples = new ArrayList<>();
+    public static ArrayList<Laptop> laptops = new ArrayList<>();
+    
     public static void main(String[] args) {
-        Set A = new Set<>();
-        Set B = new Set<>();
-        Set C = new Set<>();
-        Set D = new Set<>(); // Null
 
-        A.add(1);
-        A.add(2);
-        A.add(3);
-        A.add(4);
-        A.add(5);
+        while (true) {
+            if (!Util.input("Would you like to create a new product? (Y/n) ").equalsIgnoreCase("Y")) {
+                Util.println("");
+                displayProducts();
+                break;
+            }
 
-        B.add(3);
-        B.add(6);
-        B.add(9);
-        B.add(12);
-        B.add(D);
+            Util.println("");
 
+            boolean hasMobileData = !Util.input("Does your product use mobile data? (Y/n) ").equalsIgnoreCase("n");
 
-        C.add(2);
-        C.add(4);
-        C.add(6);
-        C.add(8);
-        C.add(D);
+            if (hasMobileData) {
+                boolean hasAirDrop = !Util.input("Are you sharing files between Apple devices? (Y/n) ").equalsIgnoreCase("n");
 
-        System.out.println("A (" + A.cardinality() + ") = " + A);
-        System.out.println("B (" + B.cardinality() + ") = " + B);
-        System.out.println("C (" + C.cardinality() + ") = " + C);
-        System.out.println("D (" + D.cardinality() + ") = " + D);
-        System.out.println();
-        System.out.println("A u B = " + A.union(B));
-        System.out.println("A n B = " + A.intersect(B));
-        System.out.println("(A n B) u C = " + A.intersect(B).union(C));
+                if (hasAirDrop) {
+                    apples.add(new Apple().initialize());
+                } else {
+                    androids.add(new Android().initialize());
+                }
+            } else {
+                laptops.add(new Laptop().initialize());
+            }
+        }
+    }
+
+    public static void displayProducts() {
+        if (androids.size() > 0) {
+            Util.println("Android devices: ");
+
+            for (int i = 0; i < androids.size(); i++) {
+                Android element = androids.get(i);
+
+                Util.println(element);
+                System.err.println();
+            }
+        }
+
+        if (apples.size() > 0) {
+            Util.println("Apple devices: ");
+
+            for (int i = 0; i < apples.size(); i++) {
+                Apple element = apples.get(i);
+
+                Util.println(element);
+                System.err.println();
+            }
+        }
+
+        if (laptops.size() > 0) {
+            Util.println("Android devices: ");
+
+            for (int i = 0; i < laptops.size(); i++) {
+                Laptop element = laptops.get(i);
+
+                Util.println(element);
+                System.err.println();
+            }
+        }
     }
 }
