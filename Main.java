@@ -18,11 +18,14 @@ public class Main {
 
                 if (hasAirDrop) {
                     iPhones.add(new iPhone().initialize());
+                    Util.println("You've created an iPhone product.");
                 } else {
                     androids.add(new Android().initialize());
+                    Util.println("You've created an Android product.");
                 }
             } else {
                 laptops.add(new Laptop().initialize());
+                    Util.println("You've created a Laptop product.");
             }
 
             Util.println("");
