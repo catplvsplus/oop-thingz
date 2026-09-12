@@ -4,7 +4,7 @@ public class Main {
     public static ArrayList<Android> androids = new ArrayList<>();
     public static ArrayList<iPhone> iPhones = new ArrayList<>();
     public static ArrayList<Laptop> laptops = new ArrayList<>();
-    
+
     public static void main(String[] args) {
         while (true) {
             if (!Util.input("Would you like to create a new product (Y/n): ").equalsIgnoreCase("Y")) {
@@ -17,15 +17,15 @@ public class Main {
                 boolean hasAirDrop = !Util.input("Are you sharing files between Apple devices (Y/n): ").equalsIgnoreCase("n");
 
                 if (hasAirDrop) {
-                    iPhones.add(new iPhone().initialize());
+                    iPhones.add(new iPhone("P"  + (iPhones.size() < 10 ? "0" : "") + (iPhones.size() + 1)).initialize());
                     Util.println("You've created an iPhone product.");
                 } else {
-                    androids.add(new Android().initialize());
+                    androids.add(new Android("P" + (androids.size() < 10 ? "0" : "")  + (androids.size() + 1)).initialize());
                     Util.println("You've created an Android product.");
                 }
             } else {
-                laptops.add(new Laptop().initialize());
-                    Util.println("You've created a Laptop product.");
+                laptops.add(new Laptop("P" + (laptops.size() < 10 ? "0" : "")  + (laptops.size() + 1)).initialize());
+                Util.println("You've created a Laptop product.");
             }
 
             Util.println("");

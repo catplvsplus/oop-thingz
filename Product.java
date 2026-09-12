@@ -4,8 +4,11 @@ public class Product {
     private double price;
     private int storage;
 
+    public Product(String productId) {
+        this.productId = productId;
+    }
+
     public Product initialize() {
-        productId = Util.input("Enter a product ID: ");
         name = Util.input("Enter a product name: ");
         price = Double.parseDouble(Util.input("Enter a product price: "));
         storage = Integer.parseInt(Util.input("How much storage does your product has (GB): "));

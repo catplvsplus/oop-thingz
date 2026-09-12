@@ -1,6 +1,10 @@
 public class Laptop extends Product {
     private int ports;
 
+    public Laptop(String productId) {
+        super(productId);
+    }
+
     @Override
     public Laptop initialize() {
         super.initialize();

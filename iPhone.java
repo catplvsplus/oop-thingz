@@ -2,6 +2,10 @@ public class iPhone extends Phone {
     private boolean airDrop = true;
     private String appleId;
 
+    public iPhone(String productId) {
+        super(productId);
+    }
+
     @Override
     public iPhone initialize() {
         super.initialize();

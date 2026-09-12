@@ -1,6 +1,10 @@
 public class Phone extends Product {
     protected String mobileData;
 
+    public Phone(String productId) {
+        super(productId);
+    }
+
     @Override
     public Phone initialize() {
         super.initialize();
