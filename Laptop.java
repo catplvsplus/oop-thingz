@@ -9,7 +9,7 @@ public class Laptop extends Product {
     public Laptop initialize() {
         super.initialize();
 
-        ports = Integer.parseInt(Util.input("How many ports does your product has: "));
+        ports = Util.inputInt("How many ports does your product has: ");
 
         return this;
     }

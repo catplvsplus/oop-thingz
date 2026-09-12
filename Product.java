@@ -10,8 +10,8 @@ public class Product {
 
     public Product initialize() {
         name = Util.input("Enter a product name: ");
-        price = Double.parseDouble(Util.input("Enter a product price: "));
-        storage = Integer.parseInt(Util.input("How much storage does your product has (GB): "));
+        price = Util.inputDouble("Enter a product price: ");
+        storage = Util.inputInt("How much storage does your product has (GB): ");
 
         return this;
     }

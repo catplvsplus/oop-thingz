@@ -7,14 +7,14 @@ public class Main {
 
     public static void main(String[] args) {
         while (true) {
-            if (!Util.input("Would you like to create a new product (Y/n): ").equalsIgnoreCase("Y")) {
+            if (!Util.confirm("Would you like to create a new product (Y/n): ")) {
                 break;
             }
 
-            boolean hasMobileData = !Util.input("Does your product use mobile data (Y/n): ").equalsIgnoreCase("n");
+            boolean hasMobileData = Util.confirm("Does your product use mobile data (Y/n): ");
 
             if (hasMobileData) {
-                boolean hasAirDrop = !Util.input("Are you sharing files between Apple devices (Y/n): ").equalsIgnoreCase("n");
+                boolean hasAirDrop = Util.confirm("Are you sharing files between Apple devices (Y/n): ");
 
                 if (hasAirDrop) {
                     iPhones.add(new iPhone(getProductID("iPhone")).initialize());
@@ -76,7 +76,7 @@ public class Main {
         }
 
         if (laptops.size() > 0) {
-            Util.println("Android devices: ");
+            Util.println("Laptop devices: ");
 
             for (int i = 0; i < laptops.size(); i++) {
                 Laptop element = laptops.get(i);

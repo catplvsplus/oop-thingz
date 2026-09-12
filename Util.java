@@ -9,7 +9,45 @@ public class Util {
 
     public static String input(Object message) {
         System.out.print(message);
-        return scanner.nextLine();
+
+        String input = null;
+
+        while (input == null) {
+            input = scanner.nextLine();
+
+            if (input == null || input.trim().isEmpty()) {
+                println("Input cannot be empty. Please try again: ");
+                input = null;
+            }
+        }
+
+        return input;
+    }
+
+    public static int inputInt(Object message) {
+        while (true) {
+            try {
+                return Integer.parseInt(input(message));
+            } catch (NumberFormatException e) {
+                println("Invalid input. Please enter a valid integer: ");
+            }
+        }
+    }
+
+    public static double inputDouble(Object message) {
+        while (true) {
+            try {
+                return Double.parseDouble(input(message));
+            } catch (NumberFormatException e) {
+                println("Invalid input. Please enter a valid double: ");
+            }
+        }
+    }
+
+    public static boolean confirm(Object message) {
+        System.out.print(message);
+        String response = scanner.nextLine();
+        return response == null || !response.equalsIgnoreCase("n");
     }
 }
 

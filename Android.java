@@ -10,7 +10,7 @@ public class Android extends Phone {
     public Android initialize() {
         super.initialize();
 
-        reverseWirelessCharging = !Util.input("Does your device use reverse reverse wireless charging (Y/n): ").equalsIgnoreCase("n");
+        reverseWirelessCharging = Util.confirm("Does your device use reverse reverse wireless charging (Y/n): ");
 
         return this;
     }
