@@ -12,6 +12,6 @@ public class Laptop extends Product {
 
     @Override
     public String toString() {
-        return super.toString() + "\nNumber of ports: " + ports;
+        return super.toString() + "\n  Number of ports: " + ports;
     }
 }

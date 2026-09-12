@@ -13,6 +13,6 @@ public class Apple extends Phone {
 
     @Override
     public String toString() {
-        return super.toString() + "\nHas Air Drop: " + airDrop + "\nApple ID: " + appleId;
+        return super.toString() + "\n  Air Drop: " + airDrop + "\n  Apple ID: " + appleId;
     }
 }

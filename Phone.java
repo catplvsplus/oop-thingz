@@ -12,6 +12,6 @@ public class Phone extends Product {
 
     @Override
     public String toString() {
-        return super.toString() + "\nMobile Data: " + mobileData;
+        return super.toString() + "\n  Mobile Data: " + mobileData;
     }
 }

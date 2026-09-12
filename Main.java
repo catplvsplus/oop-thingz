@@ -6,11 +6,8 @@ public class Main {
     public static ArrayList<Laptop> laptops = new ArrayList<>();
     
     public static void main(String[] args) {
-
         while (true) {
             if (!Util.input("Would you like to create a new product (Y/n): ").equalsIgnoreCase("Y")) {
-                Util.println("");
-                displayProducts();
                 break;
             }
 
@@ -30,13 +27,14 @@ public class Main {
 
             Util.println("");
         }
+
+        if (!androids.isEmpty() || !apples.isEmpty() || !laptops.isEmpty()) {
+            Util.println("");
+            displayProducts();
+        }
     }
 
     public static void displayProducts() {
-        if (androids.isEmpty() && apples.isEmpty() && apples.isEmpty()) {
-            return;
-        }
-
         Util.println("--------------- DISPLAYING PRODUCTS ---------------");
 
         if (androids.size() > 0) {

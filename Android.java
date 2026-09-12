@@ -13,6 +13,6 @@ public class Android extends Phone {
 
     @Override
     public String toString() {
-        return super.toString() + "\nHas Quick Share: " + quickShare + "\nHas reverse wireless charging: " + reverseWirelessCharging;
+        return super.toString() + "\n  Quick Share: " + quickShare + "\n  Reverse Wireless Charging: " + reverseWirelessCharging;
     }
 }
