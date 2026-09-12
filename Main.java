@@ -8,18 +8,16 @@ public class Main {
     public static void main(String[] args) {
 
         while (true) {
-            if (!Util.input("Would you like to create a new product? (Y/n) ").equalsIgnoreCase("Y")) {
+            if (!Util.input("Would you like to create a new product (Y/n): ").equalsIgnoreCase("Y")) {
                 Util.println("");
                 displayProducts();
                 break;
             }
 
-            Util.println("");
-
-            boolean hasMobileData = !Util.input("Does your product use mobile data? (Y/n) ").equalsIgnoreCase("n");
+            boolean hasMobileData = !Util.input("Does your product use mobile data (Y/n): ").equalsIgnoreCase("n");
 
             if (hasMobileData) {
-                boolean hasAirDrop = !Util.input("Are you sharing files between Apple devices? (Y/n) ").equalsIgnoreCase("n");
+                boolean hasAirDrop = !Util.input("Are you sharing files between Apple devices (Y/n): ").equalsIgnoreCase("n");
 
                 if (hasAirDrop) {
                     apples.add(new Apple().initialize());
@@ -29,10 +27,18 @@ public class Main {
             } else {
                 laptops.add(new Laptop().initialize());
             }
+
+            Util.println("");
         }
     }
 
     public static void displayProducts() {
+        if (androids.isEmpty() && apples.isEmpty() && apples.isEmpty()) {
+            return;
+        }
+
+        Util.println("--------------- DISPLAYING PRODUCTS ---------------");
+
         if (androids.size() > 0) {
             Util.println("Android devices: ");
 
