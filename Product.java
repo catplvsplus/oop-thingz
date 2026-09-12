@@ -8,7 +8,7 @@ public class Product {
         productId = Util.input("Enter a product ID: ");
         name = Util.input("Enter a product name: ");
         price = Double.parseDouble(Util.input("Enter a product price: "));
-        storage = Integer.parseInt("How much storage does your product has (GB): ");
+        storage = Integer.parseInt(Util.input("How much storage does your product has (GB): "));
 
         return this;
     }
