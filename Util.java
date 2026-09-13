@@ -16,7 +16,7 @@ public class Util {
             input = scanner.nextLine();
 
             if (input == null || input.trim().isEmpty()) {
-                println("Input cannot be empty. Please try again: ");
+                println("Input cannot be empty. Please try again.");
                 input = null;
             }
         }
@@ -29,7 +29,7 @@ public class Util {
             try {
                 return Integer.parseInt(input(message));
             } catch (NumberFormatException e) {
-                println("Invalid input. Please enter a valid integer: ");
+                println("Invalid input. Please enter a valid integer.");
             }
         }
     }
@@ -39,7 +39,7 @@ public class Util {
             try {
                 return Double.parseDouble(input(message));
             } catch (NumberFormatException e) {
-                println("Invalid input. Please enter a valid double: ");
+                println("Invalid input. Please enter a valid double.");
             }
         }
     }

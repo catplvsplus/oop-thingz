@@ -7,55 +7,53 @@ public class Main {
 
     public static void main(String[] args) {
         while (true) {
-            if (!Util.confirm("Would you like to create a new product (Y/n): ")) {
-                break;
+            String choice = Util.input("(create, list, exit) >>> ").toLowerCase().trim();
+
+            switch (choice) {
+                case "create":
+                    createProduct();
+                    break;
+                case "list":
+                    displayProducts();
+                    break;
+                case "exit":
+                    System.exit(0);
+                    break;
+                default:
+                    Util.println("Invalid choice. Please try again.");
             }
-
-            boolean hasMobileData = Util.confirm("Does your product use mobile data (Y/n): ");
-
-            if (hasMobileData) {
-                boolean hasAirDrop = Util.confirm("Are you sharing files between Apple devices (Y/n): ");
-
-                if (hasAirDrop) {
-                    iPhones.add(new iPhone(getProductID("iPhone")).initialize());
-                    Util.println("You've created an iPhone product.");
-                } else {
-                    androids.add(new Android(getProductID("Android")).initialize());
-                    Util.println("You've created an Android product.");
-                }
-            } else {
-                laptops.add(new Laptop(getProductID("Laptop")).initialize());
-                Util.println("You've created a Laptop product.");
-            }
-
-            Util.println("");
-        }
-
-        if (!androids.isEmpty() || !iPhones.isEmpty() || !laptops.isEmpty()) {
-            Util.println("");
-            displayProducts();
         }
     }
 
-    public static String getProductID(String productType) {
-        switch (productType) {
-            case "Android":
-                return "P" + (androids.size() < 10 ? "0" : "") + (androids.size() + 1);
-            case "iPhone":
-                return "P" + (iPhones.size() < 10 ? "0" : "") + (iPhones.size() + 1);
-            case "Laptop":
-                return "P" + (laptops.size() < 10 ? "0" : "") + (laptops.size() + 1);
-            default:
-                throw new IllegalArgumentException("Invalid product type: " + productType);
+    public static void createProduct() {
+        boolean hasMobileData = Util.confirm("Does your product use mobile data (Y/n): ");
+
+        if (hasMobileData) {
+            boolean hasAirDrop = Util.confirm("Are you sharing files between Apple devices (Y/n): ");
+
+            if (hasAirDrop) {
+                iPhones.add(new iPhone(getProductID("iPhone")).initialize());
+                Util.println("You've created an iPhone product.");
+            } else {
+                androids.add(new Android(getProductID("Android")).initialize());
+                Util.println("You've created an Android product.");
+            }
+        } else {
+            laptops.add(new Laptop(getProductID("Laptop")).initialize());
+            Util.println("You've created a Laptop product.");
         }
+
+        Util.println("");
     }
 
     public static void displayProducts() {
-        Util.println("--------------- DISPLAYING PRODUCTS ---------------");
+        if (androids.isEmpty() && iPhones.isEmpty() && laptops.isEmpty()) {
+            Util.println("No products have been created yet.");
+            return;
+        }
 
         if (androids.size() > 0) {
             Util.println("Android devices: ");
-            Util.println("");
 
             for (Android android : androids) {
                 Util.println(android);
@@ -79,6 +77,19 @@ public class Main {
                 Util.println(laptop);
                 Util.println("");
             }
+        }
+    }
+
+    public static String getProductID(String productType) {
+        switch (productType) {
+            case "Android":
+                return "P" + (androids.size() < 10 ? "0" : "") + (androids.size() + 1);
+            case "iPhone":
+                return "P" + (iPhones.size() < 10 ? "0" : "") + (iPhones.size() + 1);
+            case "Laptop":
+                return "P" + (laptops.size() < 10 ? "0" : "") + (laptops.size() + 1);
+            default:
+                throw new IllegalArgumentException("Invalid product type: " + productType);
         }
     }
 }
