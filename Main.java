@@ -55,34 +55,29 @@ public class Main {
 
         if (androids.size() > 0) {
             Util.println("Android devices: ");
+            Util.println("");
 
-            for (int i = 0; i < androids.size(); i++) {
-                Android element = androids.get(i);
-
-                Util.println(element);
-                System.err.println();
+            for (Android android : androids) {
+                Util.println(android);
+                Util.println("");
             }
         }
 
         if (iPhones.size() > 0) {
             Util.println("Apple devices: ");
 
-            for (int i = 0; i < iPhones.size(); i++) {
-                iPhone element = iPhones.get(i);
-
-                Util.println(element);
-                System.err.println();
+            for (iPhone iPhone : iPhones) {
+                Util.println(iPhone);
+                Util.println("");
             }
         }
 
         if (laptops.size() > 0) {
             Util.println("Laptop devices: ");
 
-            for (int i = 0; i < laptops.size(); i++) {
-                Laptop element = laptops.get(i);
-
-                Util.println(element);
-                System.err.println();
+            for (Laptop laptop : laptops) {
+                Util.println(laptop);
+                Util.println("");
             }
         }
     }
