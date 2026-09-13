@@ -6,9 +6,12 @@ public class Util {
     public static void println(Object message) {
         System.out.println(message);
     }
+    public static void print(Object message) {
+        System.out.print(message);
+    }
 
     public static String input(Object message) {
-        System.out.print(message);
+        print(message);
 
         String input = null;
 
@@ -17,6 +20,7 @@ public class Util {
 
             if (input == null || input.trim().isEmpty()) {
                 println("Input cannot be empty. Please try again.");
+                print(message);
                 input = null;
             }
         }
@@ -45,7 +49,7 @@ public class Util {
     }
 
     public static boolean confirm(Object message) {
-        System.out.print(message);
+        print(message);
         String response = scanner.nextLine();
         return response == null || !response.equalsIgnoreCase("n");
     }
