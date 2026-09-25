@@ -1,8 +1,6 @@
 import expressions.AbsoluteValue;
-import expressions.BinaryExpression;
 import expressions.Expression;
 import expressions.Negation;
-import expressions.UnaryExpression;
 import expressions.operations.Addition;
 import expressions.operations.Division;
 import expressions.operations.Multiplication;
