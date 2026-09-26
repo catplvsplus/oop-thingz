@@ -1,3 +1,9 @@
+/**
+ * Name: Ghexter P. Cortes
+ * Student Number: 251012510
+ * Section: BSCS 2-3
+ * Date: Sep 25, 2026
+ */
 import expressions.AbsoluteValue;
 import expressions.Expression;
 import expressions.Negation;
