@@ -25,12 +25,6 @@ public class Main {
         ));
         displayExpression(new Negation(new Expression(5)));
         displayExpression(new AbsoluteValue(new Negation(new Expression(5))));
-
-        // displayExpression(new Division(new Expression(10), new Expression(0)));
-        // displayExpression(new Expression(Double.NaN));
-        // displayExpression(new Expression(Double.POSITIVE_INFINITY));
-        // displayExpression(new BinaryExpression(new Expression(1), '%', new Expression(2)));
-        // displayExpression(new UnaryExpression(new Expression(1), '*'));
     }
 
     public static void displayExpression(Expression expression) {

@@ -8,7 +8,7 @@ package expressions;
 
 public class Negation extends UnaryExpression {
     public Negation(Expression operand) {
-        super(operand, '-');
+        super(operand, "-");
     }
 
     @Override

@@ -7,17 +7,17 @@
 package expressions;
 
 public class UnaryExpression extends Expression {
-    public static final char[] SYMBOLS = {'-', '+'};
+    public static final String[] SYMBOLS = {"-", "abs"};
 
     public Expression operand;
-    public char symbol;
+    public String symbol;
 
-    public UnaryExpression(Expression operand, char symbol) {
+    public UnaryExpression(Expression operand, String symbol) {
         super(0);
 
         boolean isValidSymbol = false;
 
-        for (char s : SYMBOLS) {
+        for (String s : SYMBOLS) {
             if (isValidSymbol = s == symbol) break;
         }
 
@@ -26,24 +26,20 @@ public class UnaryExpression extends Expression {
         }
 
         this.operand = operand;
-        this.symbol = isValidSymbol ? symbol : '+';
+        this.symbol = symbol;
     }
 
     @Override
     public double eval() {
         return switch (this.symbol) {
-            case '-' -> -this.operand.eval();
-            case '+' -> Math.abs(this.operand.eval());
+            case "-" -> -this.operand.eval();
+            case "abs" -> Math.abs(this.operand.eval());
             default -> 0;
         };
     }
 
     @Override
     public String toString() {
-        return "(" + switch (this.symbol) {
-            case '-' -> "- " + this.operand.toString();
-            case '+' -> "abs " + this.operand.toString();
-            default -> this.operand.toString();
-        } + ")";
+        return "(" + this.symbol + " " + this.operand.toString() + ")";
     }
 }

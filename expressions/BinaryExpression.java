@@ -28,7 +28,7 @@ public class BinaryExpression extends Expression {
 
         this.left = left;
         this.right = right;
-        this.symbol = isValidSymbol ? symbol : '+';
+        this.symbol = symbol;
     }
 
     @Override

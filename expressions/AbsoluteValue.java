@@ -8,7 +8,7 @@ package expressions;
 
 public class AbsoluteValue extends UnaryExpression {
     public AbsoluteValue(Expression operand) {
-        super(operand, '+');
+        super(operand, "abs");
     }
 
     @Override
