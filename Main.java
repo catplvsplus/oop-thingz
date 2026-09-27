@@ -14,17 +14,29 @@ import expressions.operations.Subtraction;
 
 public class Main {
     public static void main(String[] args) {
-        displayExpression(new Expression(2));
-        displayExpression(new Addition(new Expression(3), new Expression(4)));
-        displayExpression(new Division(
+        Expression two = new Expression(2);
+        displayExpression(two);
+
+        Addition sum = new Addition(new Expression(3), new Expression(4));
+        displayExpression(sum);
+
+        Division whole = new Division(
             new Multiplication(
                 new Addition(new Expression(2), new Expression(3)),
                 new Expression(4)
             ),
             new Subtraction(new Expression(5), new Expression(1))
-        ));
-        displayExpression(new Negation(new Expression(5)));
-        displayExpression(new AbsoluteValue(new Negation(new Expression(5))));
+        );
+        displayExpression(whole);
+
+        Negation negated = new Negation(new Expression(5));
+        displayExpression(negated);
+
+        AbsoluteValue magnitude = new AbsoluteValue(new Negation(new Expression(5)));
+        displayExpression(magnitude);
+
+        Division broken = new Division(new Expression(10), new Expression(0));
+        displayExpression(broken);
     }
 
     public static void displayExpression(Expression expression) {
