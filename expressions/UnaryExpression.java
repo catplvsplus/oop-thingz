@@ -39,6 +39,11 @@ public class UnaryExpression extends Expression {
     }
 
     @Override
+    public int height() {
+        return this.operand.height() + 1;
+    }
+
+    @Override
     public String toString() {
         return "(" + this.symbol + " " + this.operand.toString() + ")";
     }
