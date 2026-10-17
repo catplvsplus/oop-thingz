@@ -5,13 +5,6 @@ import enemy.Knight;
 import enemy.Wizard;
 import player.Player;
 
-/**
- * Name: Ghexter P. Cortes
- * Student Number: 251012510
- * Section: BSCS 2-3
- * Date: October 16, 2026
- */
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("Turn Based RPG");
