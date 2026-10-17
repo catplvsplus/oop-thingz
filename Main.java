@@ -1,48 +1,63 @@
+import java.util.Scanner;
+
+import enemy.Enemy;
+import enemy.Knight;
+import enemy.Wizard;
+import player.Player;
+
 /**
  * Name: Ghexter P. Cortes
  * Student Number: 251012510
  * Section: BSCS 2-3
- * Date: Sep 25, 2026
+ * Date: October 16, 2026
  */
-import expressions.AbsoluteValue;
-import expressions.Expression;
-import expressions.Negation;
-import expressions.operations.Addition;
-import expressions.operations.Division;
-import expressions.operations.Multiplication;
-import expressions.operations.Subtraction;
 
 public class Main {
     public static void main(String[] args) {
-        Expression two = new Expression(2);
-        displayExpression(two);
+        System.out.println("Turn Based RPG");
+        System.out.println("--------------");
+        System.out.println("[1] Play");
+        System.out.println("[2] Quit");
 
-        Addition sum = new Addition(new Expression(3), new Expression(4));
-        displayExpression(sum);
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
 
-        Division whole = new Division(
-            new Multiplication(
-                new Addition(new Expression(2), new Expression(3)),
-                new Expression(4)
-            ),
-            new Subtraction(new Expression(5), new Expression(1))
-        );
-        displayExpression(whole);
-
-        Negation negated = new Negation(new Expression(5));
-        displayExpression(negated);
-
-        AbsoluteValue magnitude = new AbsoluteValue(new Negation(new Expression(5)));
-        displayExpression(magnitude);
-
-        Division broken = new Division(new Expression(10), new Expression(0));
-        displayExpression(broken);
+        switch (input) {
+            case "1":
+                playGame(sc);
+                break;
+            case "2":
+                break;
+        }
     }
 
-    public static void displayExpression(Expression expression) {
-        System.out.println(expression);
-        System.out.println("eval = " + expression.eval());
-        System.out.println("height = " + expression.height());
-        System.out.println();
+    public static void playGame(Scanner sc) {
+        Player player = new Player("Steve");
+
+        player.showWeapons();
+
+        player.seeEnemy(new Knight());
+        battle(player, sc);
+
+        player.seeEnemy(new Knight());
+        player.seeEnemy(new Wizard());
+        player.seeEnemy(new Wizard());
+        battle(player, sc);
+
+        if (player.hp <= 0) {
+            System.out.println("You lose...");
+        } else {
+            System.out.println("You win!!!");
+        }
+    }
+
+    public static void battle(Player player, Scanner sc) {
+        while (!player.visibleEnemies.isEmpty() && player.hp > 0) {
+            player.playerTurn(sc);
+
+            for (Enemy enemy : player.visibleEnemies) {
+                enemy.enemyTurn(player, sc);
+            }
+        }
     }
 }
